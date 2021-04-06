@@ -1,7 +1,5 @@
 import serial
-from smbus import SMBus
 
-addr = 0x8
 slots = { b'123' : 1 }
 
 def get_qr_code():
@@ -11,12 +9,6 @@ def get_qr_code():
             data += qr.read()
      
     return data
-
-
-def open_slot(slot_number):
-    bus = SMBus(1)
-    bus.write_byte(addr, 1)
-    bus.close()
 
 
 def get_card_number():
