@@ -1,4 +1,4 @@
-from observer import Observer
+from devices.observer import Observer
 
 
 class CardLogger(Observer):

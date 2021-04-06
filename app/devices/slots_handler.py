@@ -1,5 +1,5 @@
 from smbus import SMBus
-from config import ARDUINO_I2C_ADDRESS
+from devices.config import ARDUINO_I2C_ADDRESS
 
 
 def open_slot(slot_number):

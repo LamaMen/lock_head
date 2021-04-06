@@ -1,5 +1,5 @@
-from observer import Observer
-from subject import Subject
+from devices.observer import Observer
+from devices.subject import Subject
 from typing import List
 from threading import Thread
 import serial

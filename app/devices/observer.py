@@ -1,5 +1,4 @@
 from abc import ABC, abstractmethod
-from subject import Subject
 
 
 class Observer(ABC):
