@@ -1,5 +1,5 @@
 from app import app
-from devices.slots_handler import open_slot
+from app.devices.slots_handler import open_slot
 
 
 @app.route('/debug/open_slot')
