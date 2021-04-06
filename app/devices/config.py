@@ -1,1 +1,2 @@
-arduino_i2c_address = 0x8
+ARDUINO_I2C_ADDRESS = 0x8
+ON_RASPBERRY_MODE = False
