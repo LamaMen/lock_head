@@ -2,10 +2,15 @@ import serial
 from smbus import SMBus
 
 addr = 0x8
-slots = { '123' : b'1' }
+slots = { b'123' : 1 }
 
 def get_qr_code():
-    return 123
+    with serial.Serial('/dev/ttyUSB0', 9600) as qr:
+        data = b""
+        for i in range(3):
+            data += qr.read()
+     
+    return data
 
 
 def open_slot(slot_number):
@@ -25,3 +30,14 @@ def get_card_number():
     
     return int(data[2:-2], 16)
 
+print('Hello', 'Enter card', sep='\n')
+card = get_card_number()
+print('Card: ', card)
+print('Enter qr')
+qr = get_qr_code()
+print('Qr: ', qr)
+if qr in slots:
+    print('Open slot')
+    open_slot(slots[qr])
+else:
+    print('Error!')
