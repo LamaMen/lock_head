@@ -1,6 +1,7 @@
 from app import app
-from app.devices.slots_handler import open_slot
-from app.devices import card_logger
+from devices import open_slot
+from devices import card_logger
+
 
 @app.route('/debug/open_slot')
 def open_slot_debug():
