@@ -1,5 +1,4 @@
 from smbus import SMBus
-
 from config import ARDUINO_I2C_ADDRESS
 
 
