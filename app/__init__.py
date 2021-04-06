@@ -2,5 +2,5 @@ from flask import Flask
 
 app = Flask(__name__)
 
-from app import views
-from app import debug_routes
+from views import views
+from views import debug_views
