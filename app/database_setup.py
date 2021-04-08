@@ -12,14 +12,14 @@ class TechTask(Base):
     number = Column(Integer())
 
 
-class Boxes(Base):
+class Box(Base):
     __tablename__ = 'boxes'
 
     box_id = Column(Integer, nullable=False, primary_key=True)
     tech_task_id = Column(String(250), ForeignKey('tech_task.tech_task_id'))
 
 
-class Logs(Base):
+class Log(Base):
     __tablename__ = 'logs'
 
     log_id = Column(Integer, primary_key=True)
