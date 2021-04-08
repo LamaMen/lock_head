@@ -1,5 +1,6 @@
 from sqlalchemy import Column, ForeignKey, String, Integer, create_engine, DateTime
 from sqlalchemy.ext.declarative import declarative_base
+from sqlalchemy.orm import sessionmaker
 
 Base = declarative_base()
 
@@ -27,6 +28,16 @@ class Logs(Base):
     tech_task_id = Column(String(250))
 
 
+
+
 engine = create_engine('sqlite:///boxes-equals.db')
 
 Base.metadata.create_all(engine)
+
+DBSession = sessionmaker(bind=engine)
+
+session = DBSession()
+
+# task1 = TechTask(tech_task_id='1', number=1)
+# session.add(task1)
+# session.commit()
