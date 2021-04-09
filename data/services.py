@@ -1,4 +1,4 @@
-from app.DAO_classes import TechTaskDAO
+from data.DAO_classes import TechTaskDAO
 
 
 class TechTaskService:
