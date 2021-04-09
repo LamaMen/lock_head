@@ -9,7 +9,6 @@ class TechTask(Base):
     __tablename__ = 'tech_task'
 
     tech_task_id = Column(String(250), nullable=False, primary_key=True)
-    number = Column(Integer())
 
 
 class Box(Base):
