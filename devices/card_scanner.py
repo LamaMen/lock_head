@@ -17,6 +17,7 @@ class CardScanner(Subject, Thread):
 
     @staticmethod
     def get_card_number() -> str:
+        # TODO порт открывается один раз
         with serial.Serial('/dev/serial0', 9600) as card:
             data = b''
             current_byte = b''
