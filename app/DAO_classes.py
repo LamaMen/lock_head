@@ -25,23 +25,27 @@ class BoxDAO:
 
 
 class TechTaskDAO:
-    def create(self, task_id):
+    @staticmethod
+    def create(task_id):
         add_task = TechTask(tech_task_id=task_id)
         session.add(add_task)
         session.commit()
 
-    def read_all(self):
+    @staticmethod
+    def read_all():
         all_tech_tasks = session.query(TechTask).all()
         session.commit()
         return all_tech_tasks
 
-    def update(self, task_id):
+    @staticmethod
+    def update(task_id):
         updating_task = session.query(TechTask).filter_by(tech_task_id=task_id).one()
         updating_task.tech_task_id = task_id
         session.add(updating_task)
         session.commit()
 
-    def delete(self, task_id):
+    @staticmethod
+    def delete(task_id):
         deleting_task = session.query(TechTask).filter_by(tech_task_id=task_id).one()
         session.delete(deleting_task)
         session.commit()
