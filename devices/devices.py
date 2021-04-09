@@ -6,9 +6,12 @@ slots = {b'123': 1}
 def get_qr_code():
     with serial.Serial('/dev/ttyUSB0', 9600) as qr:
         data = b""
-        for i in range(3):
-            data += qr.read()
+        current_symbol = b""
+        while current_symbol != b'\r':
+            data += current_symbol
+            current_symbol = qr.read()
 
+    print(data)
     return data
 #
 #
@@ -24,13 +27,13 @@ def get_qr_code():
 #     return int(data[2:-2], 16)
 
 
-# if __name__ == '__main__':
+if __name__ == '__main__':
 #     print('Hello', 'Enter card', sep='\n')
 #     card = get_card_number()
 #     print('Card: ', card)
-#     print('Enter qr')
-#     qr = get_qr_code()
-#     print('Qr: ', qr)
+    print('Enter qr')
+    qr = get_qr_code()
+#    print('Qr: ', qr)
 #     if qr in slots:
 #         print('Open slot')
 #         open_slot(slots[qr])
