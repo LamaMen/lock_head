@@ -58,11 +58,11 @@ class LogDAO:
         session.commit()
         return all_logs
 
-    # def update(self, log_id, worker, date, tech_task_id):
-    #     updating_task = session.query(TechTask).filter_by(tech_task_id=task).one()
-    #     updating_task.tech_task_id = task
-    #     session.add(updating_task)
-    #     session.commit()
+    def update(self, log_id, worker, date, tech_task_id):
+        updating_task = session.query(TechTask).filter_by(tech_task_id=tech_task_id).one()
+        updating_task.tech_task_id = tech_task_id
+        session.add(updating_task)
+        session.commit()
 
     def delete_all(self, log_id, worker, date, tech_task_id):
         deleting_task = session.query(TechTask).filter_by(tech_task_id=tech_task_id).all()
