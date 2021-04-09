@@ -25,8 +25,8 @@ class BoxDAO:
 
 
 class TechTaskDAO:
-    def create(self, task_id):
-        add_task = TechTask(tech_task_id=task_id)
+    def create(self, task_id, number):
+        add_task = TechTask(tech_task_id=task_id, number=number)
         session.add(add_task)
         session.commit()
 
