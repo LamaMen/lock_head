@@ -1,30 +1,39 @@
-import flask
-from flask import jsonify, render_template, redirect
+from sqlite3 import Date
+
+from flask import jsonify, render_template
 
 from app import app
-from dao.tech_task_dao import TechTaskDAO
+from services.log_service import LogService
+from services.box_service import BoxService
 from services.tech_task_service import TechTaskService
+
 
 
 @app.route('/')
 def boxes():
+    # all_boxes = BoxService.show_all()
+    # return render_template('tasks.html', list=all_boxes)
     return render_template('index.html')
 
 
 @app.route('/tasks')
 def tasks():
+    # all_tasks = TechTaskService.show_all()
+    # return render_template('tasks.html', list=all_tasks)
     return render_template('tasks.html')
 
 
 @app.route('/log')
 def log():
-    return render_template('log.html')
+    # all_logs = LogService.show_all_log()
+    # return render_template('log.html', list=all_logs)
+    return  render_template('log.html')
 
 
 @app.route('/add', methods=['GET'])
 def get_tasks():
     tasks_from_db = []
-    for task in TechTaskDAO.read_all():
+    for task in TechTaskService.show_all():
         tasks_from_db.append(task.tech_task_id)
 
     return jsonify({"tasks": tasks_from_db})
@@ -33,10 +42,12 @@ def get_tasks():
 @app.route('/tasks/add/<task_id>')
 def add_task(task_id):
     TechTaskService.add_task(task_id)
-    return redirect('/tasks')
+    return "Create task " + str(task_id)
 
 
 @app.route('/tasks/delete/<task_id>')
 def delete_task(task_id):
     TechTaskService.delete_task(task_id)
-    return redirect('/tasks')
+    return "Deleted task " + str(task_id)
+
+

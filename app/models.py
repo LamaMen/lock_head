@@ -21,3 +21,7 @@ class Log(db.Model):
     worker = db.Column(db.String(100))
     date = db.Column(db.DateTime, nullable=False)
     tech_task_id = db.Column(db.String(250))
+
+    def __str__(self):
+        return "%r  Сотрудник: %r  Дата: %r  Номер ТЗ: %r" % \
+               (self.log_id, self.worker, self.date.__str__(), self.tech_task_id)
