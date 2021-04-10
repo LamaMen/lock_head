@@ -1,4 +1,5 @@
-from flask import jsonify, render_template
+import flask
+from flask import jsonify, render_template, redirect
 
 from app import app
 from dao.tech_task_dao import TechTaskDAO
@@ -29,13 +30,13 @@ def get_tasks():
     return jsonify({"tasks": tasks_from_db})
 
 
-@app.route('/add/<task_id>')
+@app.route('/tasks/add/<task_id>')
 def add_task(task_id):
     TechTaskService.add_task(task_id)
-    return "Create task " + str(task_id)
+    return redirect('/tasks')
 
 
 @app.route('/tasks/delete/<task_id>')
 def delete_task(task_id):
     TechTaskService.delete_task(task_id)
-    return "Deleted task " + str(task_id)
+    return redirect('/tasks')
