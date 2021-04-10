@@ -51,3 +51,19 @@ def delete_task(task_id):
     return "Deleted task " + str(task_id)
 
 
+# @app.route('/log/add')
+# def add_log():
+#     LogService.add_log(1, "Dima", Date.max, 123)
+#     LogService.add_log(2, "Iluha", Date.max, 123)
+#     return 0
+
+
+@app.route('/log/download')
+def logs_download():
+    logs = open("All_Logs.txt", "a")
+    for log in LogService.show_all_log():
+        logs.write(log.__str__())
+    logs.close()
+    return logs.name
+
+
