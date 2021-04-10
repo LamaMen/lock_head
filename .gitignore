@@ -7,3 +7,4 @@ server.wsgi
 /__pycache__/
 /devices/__pycache__/
 /views/__pycache__/
+/app/boxes.db
