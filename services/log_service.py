@@ -1,5 +1,6 @@
 from dao.log_dao import LogDAO
 
+
 class LogService:
     @staticmethod
     def add_log(log_id):
