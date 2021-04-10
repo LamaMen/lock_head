@@ -4,8 +4,8 @@ from app import db
 
 class LogDAO:
     @staticmethod
-    def create(log_id, worker, date, tech_task_id):
-        add_log = Log(log_id=log_id, worker=worker, date=date, tech_task_id=tech_task_id)
+    def create(worker, date, tech_task_id):
+        add_log = Log(worker=worker, date=date, tech_task_id=tech_task_id)
         db.session.add(add_log)
         db.session.commit()
 
