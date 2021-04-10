@@ -1,4 +1,11 @@
 # Project exclude paths
 /venv/
 /.idea
-/app/boxes.db
+/__pycache__/
+/app/__pycache__/
+/dao/__pycache__/
+/devices/__pycache__/
+/services/__pycache__/
+/views/__pycache__/
+/migrations/__pycache__/
+/migrations/versions/__pycache__/
