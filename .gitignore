@@ -11,3 +11,4 @@
 /migrations/versions/__pycache__/
 server.py
 server.wsgi
+/app/boxes.db
