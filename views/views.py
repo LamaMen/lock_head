@@ -2,6 +2,7 @@ from flask import jsonify, render_template
 
 from app import app
 from dao.tech_task_dao import TechTaskDAO
+from services.tech_task_service import TechTaskService
 
 
 @app.route('/')
@@ -20,5 +21,5 @@ def get_tasks():
 
 @app.route('/add/<task_id>')
 def add_task(task_id):
-    TechTaskDAO.create(task_id)
+    TechTaskService.add_task(task_id)
     return "Create task " + str(task_id)
