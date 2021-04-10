@@ -33,3 +33,9 @@ def get_tasks():
 def add_task(task_id):
     TechTaskService.add_task(task_id)
     return "Create task " + str(task_id)
+
+
+@app.route('/tasks/delete/<task_id>')
+def delete_task(task_id):
+    TechTaskService.delete_task(task_id)
+    return "Deleted task " + str(task_id)
