@@ -6,17 +6,27 @@ from services.tech_task_service import TechTaskService
 
 
 @app.route('/')
-def home():
+def boxes():
     return render_template('index.html')
+
+
+@app.route('/tasks')
+def tasks():
+    return render_template('tasks.html')
+
+
+@app.route('/log')
+def log():
+    return render_template('log.html')
 
 
 @app.route('/add', methods=['GET'])
 def get_tasks():
-    tasks = []
+    tasks_from_db = []
     for task in TechTaskDAO.read_all():
-        tasks.append(task.tech_task_id)
+        tasks_from_db.append(task.tech_task_id)
 
-    return jsonify({"tasks": tasks})
+    return jsonify({"tasks": tasks_from_db})
 
 
 @app.route('/add/<task_id>')
