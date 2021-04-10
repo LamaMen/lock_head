@@ -20,7 +20,7 @@ def start_qr_reader():
 
 
 def get_qr_code() -> str:
-    return '106-04/21'
+    return '71-04/21'
 
     # with serial.Serial('/dev/ttyUSB0', 9600) as qr:
     #     data = b""

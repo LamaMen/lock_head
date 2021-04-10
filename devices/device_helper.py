@@ -1,4 +1,6 @@
 from devices.slots_handler import open_slot
+from services.box_service import BoxService
+from services.log_service import LogService
 
 
 class DeviceHelper:
@@ -26,8 +28,20 @@ class DeviceHelper:
 
     def open_slot(self):
         if self.is_ready():
-            # логирование
-            # проверка номера ячейки
-            open_slot(1)
+            LogService.add_log(self.worker, self.qr_code)
+            box_number = self.get_box_number()
+
+            if box_number != -1:
+                open_slot(box_number)
+
             self.is_worker_login = False
             self.is_qr_code_input = False
+
+    def get_box_number(self):
+        boxes = BoxService.show_all()
+        box_number = -1
+        for box in boxes:
+            if box.tech_task_id == self.qr_code:
+                box_number = box.box_id
+
+        return box_number
