@@ -1,4 +1,4 @@
-# import serial
+import serial
 
 import time
 
@@ -20,16 +20,16 @@ def start_card_scanner():
 
 
 def get_card_number() -> str:
-    return '12354'
-    # with serial.Serial('/dev/serial0', 9600) as card:
-    #     data = b''
-    #     current_byte = b''
-    #     while current_byte != b'\x03':
-    #         if current_byte != b'\x02':
-    #             data += current_byte
-    #         current_byte = card.read()
-    #
-    # return str(data)
+    # return '12354'
+    with serial.Serial('/dev/serial0', 9600) as card:
+        data = b''
+        current_byte = b''
+        while current_byte != b'\x03':
+            if current_byte != b'\x02':
+                data += current_byte
+            current_byte = card.read()
+
+    return str(int(data[2:-2], 16))
 
 
 if __name__ == '__main__':

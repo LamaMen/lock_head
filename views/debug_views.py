@@ -25,3 +25,4 @@ def init_box():
     BoxDAO.update(3, '71-04/21')
     BoxDAO.create(4)
     BoxDAO.update(4, '47-04/21')
+    return 'success'

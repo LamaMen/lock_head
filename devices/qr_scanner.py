@@ -1,4 +1,4 @@
-# import serial
+import serial
 
 import json
 import time
@@ -20,17 +20,17 @@ def start_qr_reader():
 
 
 def get_qr_code() -> str:
-    return '71-04/21'
+    # return '71-04/21'
 
-    # with serial.Serial('/dev/ttyUSB0', 9600) as qr:
-    #     data = b""
-    #     current_symbol = b""
-    #     while current_symbol != b'\r':
-    #         data += current_symbol
-    #         current_symbol = qr.read()
-    #
-    # print(data)
-    # return data
+    with serial.Serial('/dev/ttyUSB0', 9600) as qr:
+        data = b""
+        current_symbol = b""
+        while current_symbol != b'\r':
+            data += current_symbol
+            current_symbol = qr.read()
+
+    print(data)
+    return data.decode("usf-8")
 
 
 if __name__ == '__main__':
