@@ -1,11 +1,12 @@
+import datetime
+
 from dao.log_dao import LogDAO
 
 
 class LogService:
     @staticmethod
-    def add_log(log_id, worker, date, tech_task_id):
-        if log_id is not None:
-            LogDAO.create(log_id, worker, date, tech_task_id)
+    def add_log(worker, tech_task_id):
+        LogDAO.create(worker, datetime.datetime.now(), tech_task_id)
 
     @staticmethod
     def show_all_log():
