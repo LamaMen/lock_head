@@ -10,3 +10,7 @@ class TechTaskService:
     @staticmethod
     def delete_task(task_id):
         TechTaskDAO.delete(task_id)
+
+    @staticmethod
+    def show_all():
+        return TechTaskDAO.read_all()

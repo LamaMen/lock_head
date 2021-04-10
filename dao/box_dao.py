@@ -4,8 +4,8 @@ from app import db
 
 class BoxDAO:
     @staticmethod
-    def create(box_id, task_id):
-        add_box = Box(box_id=box_id, tech_task_id=task_id)
+    def create(box_id):
+        add_box = Box(box_id=box_id, tech_task_id=None)
         db.session.add(add_box)
         db.session.commit()
 
