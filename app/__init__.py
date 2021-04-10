@@ -11,3 +11,4 @@ migrate = Migrate(app, db)
 
 from views import views
 # from views import debug_views
+from views import devices_views
