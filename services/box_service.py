@@ -10,6 +10,6 @@ class BoxService:
     def show_all():
         return BoxDAO.read_all()
 
-    # @staticmethod
-    # def add_box():
-    #     BoxDAO.create()
+    @staticmethod
+    def add_box():
+        BoxDAO.create()

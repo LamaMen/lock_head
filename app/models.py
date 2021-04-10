@@ -13,9 +13,6 @@ class TechTask(db.Model):
 
     tech_task_id = db.Column(db.String(250), nullable=False, primary_key=True)
 
-    def __repr__(self):
-        return '<Task {}>'.format(self.tech_task_id)
-
 
 class Log(db.Model):
     __tablename__ = 'logs'
