@@ -3,10 +3,9 @@ from dao.log_dao import LogDAO
 
 class LogService:
     @staticmethod
-    def add_log(log_id):
+    def add_log(log_id, worker, date, tech_task_id):
         if log_id is not None:
-            # TODO добавить аргументы
-            LogDAO.create(log_id)
+            LogDAO.create(log_id, worker, date, tech_task_id)
 
     @staticmethod
     def show_all_log():
