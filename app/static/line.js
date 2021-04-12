@@ -1,7 +1,7 @@
 var current_page;
 
-if (window.location.href == "file:///C:/Users/user/source/Factory/actory/p2Tz.html") { current_page = document.getElementById('a1'); }
-else if (window.location.href == "file:///C:/Users/user/source/Factory/actory/p1Yacheyky.html") { current_page = document.getElementById('a2'); }
+if (window.location.href == "https://blackbirdteam.pythonanywhere.com/tasks") { current_page = document.getElementById('a1'); }
+else if (window.location.href == "https://blackbirdteam.pythonanywhere.com/") { current_page = document.getElementById('a2'); }
 else { current_page = document.getElementById('a3'); }
 
 current_page.style.borderBottom = "2px solid #F8E015";
