@@ -1,0 +1,55 @@
+ @import url('https://fonts.googleapis.com/css2?family=Lato:wght@300&family=Raleway:ital,wght@1,200&display=swap');
+
+body{
+    background: #F9F8F0;
+}
+
+nav-item{
+    font-family: Montserrat;
+font-size: 24px;
+font-style: normal;
+font-weight: 400;
+line-height: 29px;
+letter-spacing: 0em;
+text-align: left;
+}
+
+a{
+    color: #2F2D30;
+}
+
+a:hover,a:focus{
+    color: #F8E015;
+    outline: 0;
+   }
+
+button.btn{
+        background-color: #C4C4C4;
+        border-radius: 20px;
+}
+
+button.btn1{
+    background-color: #F9F8F0;
+    padding-top: 0px;  
+}
+
+.container{
+    margin-top: 10%;
+}
+
+.dropdown{
+    margin-top: 25px;
+    margin-bottom: 25px;
+}
+
+.col-md-1{
+    font-size: 48px;
+}
+
+.btn-circle {
+    width: 48px;
+    height: 48px;
+    border-radius: 24px;
+    text-align: center;
+    font-size: 16px;
+}
