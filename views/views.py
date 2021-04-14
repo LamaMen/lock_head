@@ -26,7 +26,7 @@ def tasks():
 def log():
     # all_logs = LogService.show_all_log()
     # return render_template('log.html', list=all_logs)
-    return render_template('log.html')
+    return render_template('log.html', logs=LogService.show_logs())
 
 
 @app.route('/add', methods=['GET'])

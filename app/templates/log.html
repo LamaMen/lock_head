@@ -49,24 +49,26 @@
         </tr>
       </thead>
       <tbody>
+      {% for log in logs %}
         <tr>
-          <th scope="row">ID</th>
-          <td>01</td>
-          <td>111</td>
-          <td>1.01.2000</td>
+          <th scope="row">{{ log.worker }}</th>
+          <td>{{ log.log_id }}</td>
+          <td>{{ log.tech_task_id }}</td>
+          <td>{{ log.date }}</td>
         </tr>
-        <tr>
-          <th scope="row"></th>
-          <td></td>
-          <td></td>
-          <td></td>
-        </tr>
-        <tr>
-          <th scope="row"></th>
-          <td></td>
-          <td></td>
-          <td></td>
-        </tr>
+      {% endfor %}
+{#        <tr>#}
+{#          <th scope="row"></th>#}
+{#          <td></td>#}
+{#          <td></td>#}
+{#          <td></td>#}
+{#        </tr>#}
+{#        <tr>#}
+{#          <th scope="row"></th>#}
+{#          <td></td>#}
+{#          <td></td>#}
+{#          <td></td>#}
+{#        </tr>#}
       </tbody>
     </table>
   </div>
