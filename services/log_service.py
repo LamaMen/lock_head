@@ -9,9 +9,17 @@ class LogService:
         LogDAO.create(worker, datetime.datetime.now(), tech_task_id)
 
     @staticmethod
-    def show_all_log():
+    def show_logs():
         return LogDAO.read_all()
 
     @staticmethod
-    def delete_all_log():
+    def delete_logs():
         LogDAO.delete_all()
+
+    @staticmethod
+    def download_logs():
+        logs = open("All_Logs.txt", "a")
+        for log in LogService.show_all_log():
+            logs.write(log.__str__())
+        logs.close()
+        return logs

@@ -1,12 +1,11 @@
 from sqlite3 import Date
 
-from flask import jsonify, render_template
+from flask import jsonify, render_template, send_file
 
 from app import app
 from services.log_service import LogService
 from services.box_service import BoxService
 from services.tech_task_service import TechTaskService
-
 
 
 @app.route('/')
@@ -27,7 +26,7 @@ def tasks():
 def log():
     # all_logs = LogService.show_all_log()
     # return render_template('log.html', list=all_logs)
-    return  render_template('log.html')
+    return render_template('log.html')
 
 
 @app.route('/add', methods=['GET'])
@@ -60,10 +59,7 @@ def delete_task(task_id):
 
 @app.route('/log/download')
 def logs_download():
-    logs = open("All_Logs.txt", "a")
-    for log in LogService.show_all_log():
-        logs.write(log.__str__())
-    logs.close()
-    return logs.name
+    logs = LogService.download_logs()
+    return send_file(logs)
 
 
