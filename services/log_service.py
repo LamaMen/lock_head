@@ -19,7 +19,7 @@ class LogService:
     @staticmethod
     def download_logs():
         logs = open("Logs.txt", "w")
-        for log in LogService.show_all_log():
+        for log in LogService.show_logs():
             logs.write(log.__str__())
         logs.close()
         return logs
