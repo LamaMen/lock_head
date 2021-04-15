@@ -15,5 +15,6 @@ class BoxService:
         BoxDAO.create()
 
     @staticmethod
-    def save(box_id, tech_task_id):
-        BoxDAO.update(box_id, tech_task_id)
+    def save(box_equals):
+        arr = box_equals.split(' - ')
+        BoxDAO.update(int(arr[0]), arr[1])

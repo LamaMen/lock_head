@@ -50,5 +50,5 @@ def logs_download():
 
 @app.route('/box/change', methods=['POST'])
 def change_box():
-    print(request.form.get('task'))
+    BoxService.save(request.form.get('task'))
     return redirect('/', code=302)
