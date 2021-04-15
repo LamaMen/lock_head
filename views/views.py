@@ -3,11 +3,12 @@ from flask import jsonify, render_template, send_file, request
 from app import app
 from services.log_service import LogService
 from services.tech_task_service import TechTaskService
+from services.box_service import BoxService
 
 
 @app.route('/')
 def boxes():
-    return render_template('index.html')
+    return render_template('index.html', boxes=BoxService.show_all(), tasks=TechTaskService.show_all())
 
 
 @app.route('/tasks')

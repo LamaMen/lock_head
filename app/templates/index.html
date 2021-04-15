@@ -34,72 +34,31 @@
 </div>
 <script src="{{ url_for('static', filename='line.js') }}"></script>
 
-
-<div class="container-fluid">
-    <div class="row">
-        <div class="col-md-3 "></div>
-        <div class="col-md-1 left" align="center">1</div>
-        <div class="col-md-4">
-            <form action="#">
-                <select name="tasks" class="form-control" align="center">
-                    <option>---</option>
-                    <option>111</option>
-                    <option>222</option>
-                </select>
-            </form>
-        </div>
-        <div class="col-md-1 right" align="center">
-            <div>
-                <button type="button" class="btn btn-circle"><i class="fa fa-save"></i></button>
-                <button type="button" class="btn btn-circle"><i class="fa fa-lock"></i></button>
+{% for box in boxes %}
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-3 "></div>
+            <div class="col-md-1 left" align="center">{{ box.box_id }}</div>
+            <div class="col-md-4">
+                <form action="#">
+                    <select name="tasks" class="form-control" align="center">
+                        <option>---</option>
+                        {% for task in tasks %}
+                            <option value="{{ task.tech_task_id }}">{{ task.tech_task_id }}</option>
+                        {% endfor %}
+                    </select>
+                </form>
+            </div>
+            <div class="col-md-1 right" align="center">
+                <div>
+                    <button type="button" class="btn btn-circle"><i class="fa fa-save"></i></button>
+                    <button type="button" class="btn btn-circle"><i class="fa fa-lock"></i></button>
+                </div>
             </div>
         </div>
     </div>
-</div>
-<br>
-<div class="container-fluid">
-    <div class="row">
-        <div class="col-md-3 "></div>
-        <div class="col-md-1 left" align="center">2</div>
-        <div class="col-md-4">
-            <form action="#">
-                <select name="tasks" class="form-control" align="center">
-                    <option>---</option>
-                    <option>111</option>
-                    <option>222</option>
-                </select>
-            </form>
-        </div>
-        <div class="col-md-1 right" align="center">
-            <div>
-                <button type="button" class="btn btn-circle"><i class="fa fa-save"></i></button>
-                <button type="button" class="btn btn-circle"><i class="fa fa-lock"></i></button>
-            </div>
-        </div>
-    </div>
-</div>
-<br>
-<div class="container-fluid">
-    <div class="row">
-        <div class="col-md-3 "></div>
-        <div class="col-md-1 left" align="center">3</div>
-        <div class="col-md-4">
-            <form action="#">
-                <select name="tasks" class="form-control" align="center">
-                    <option>---</option>
-                    <option>111</option>
-                    <option>222</option>
-                </select>
-            </form>
-        </div>
-        <div class="col-md-1 right" align="center">
-            <div>
-                <button type="button" class="btn btn-circle"><i class="fa fa-save"></i></button>
-                <button type="button" class="btn btn-circle"><i class="fa fa-lock"></i></button>
-            </div>
-        </div>
-    </div>
-</div>
+    <br>
+{% endfor %}
 </body>
 
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"

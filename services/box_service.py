@@ -13,3 +13,7 @@ class BoxService:
     @staticmethod
     def add_box():
         BoxDAO.create()
+
+    @staticmethod
+    def save(box_id, tech_task_id):
+        BoxDAO.update(box_id, tech_task_id)
