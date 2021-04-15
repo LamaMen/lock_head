@@ -42,9 +42,7 @@
             <div class="col-md-4">
                 <form action="/box/change" id="task_change{{ box.box_id }}" method="post">
                     <select name="task" class="form-control" align="center">
-                        {% if box.tech_task_id != None %}
-                            <option selected value="{{ box.box_id }} - {{ box.tech_task_id }}">{{ box.tech_task_id }} </option>
-                        {% endif %}
+                        <option selected value="{{ box.box_id }} - {{ box.tech_task_id }}">{{ box.tech_task_id }} </option>
                         <option value="{{ box.box_id }} - none">---</option>
                         {% for task in tasks %}
                             <option value="{{ box.box_id }} - {{ task.tech_task_id }}">{{ task.tech_task_id }}</option>
