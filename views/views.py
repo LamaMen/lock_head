@@ -1,4 +1,4 @@
-from flask import jsonify, render_template, send_file, request
+from flask import jsonify, render_template, send_file, request, redirect
 
 from app import app
 from services.log_service import LogService
@@ -46,3 +46,9 @@ def delete_task(task_id):
 def logs_download():
     logs = LogService.download_logs()
     return send_file(logs)
+
+
+@app.route('/box/change', methods=['POST'])
+def change_box():
+    print(request.form.get('task'))
+    return redirect('/', code=302)

@@ -40,18 +40,18 @@
             <div class="col-md-3 "></div>
             <div class="col-md-1 left" align="center">{{ box.box_id }}</div>
             <div class="col-md-4">
-                <form action="#">
-                    <select name="tasks" class="form-control" align="center">
-                        <option>---</option>
+                <form action="/box/change" id="task_change{{ box.box_id }}" method="post">
+                    <select name="task" class="form-control" align="center">
+                        <option value="{{ box.box_id }} - none">---</option>
                         {% for task in tasks %}
-                            <option value="{{ task.tech_task_id }}">{{ task.tech_task_id }}</option>
+                            <option value="{{ box.box_id }} - {{ task.tech_task_id }}">{{ task.tech_task_id }}</option>
                         {% endfor %}
                     </select>
                 </form>
             </div>
             <div class="col-md-1 right" align="center">
                 <div>
-                    <button type="button" class="btn btn-circle"><i class="fa fa-save"></i></button>
+                    <button type="submit" form="task_change{{ box.box_id }}" class="btn btn-circle"><i class="fa fa-save"></i></button>
                     <button type="button" class="btn btn-circle"><i class="fa fa-lock"></i></button>
                 </div>
             </div>
