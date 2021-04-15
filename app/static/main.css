@@ -54,14 +54,29 @@ button.btn1{
     margin-bottom: 25px;
 }
 
-.col-md-1{
+.left{
     font-size: 48px;
+    background-color: #F8E015;
+    border-radius: 50px 0 0 50px;
+}
+
+.right{
+    font-size: 48px;
+    background-color: #F8E015;
+    border-radius: 0 50px 50px 0;
+
+}
+.col-md-4{
+    background-color: #C4C4C4;
 }
 
 .btn-circle {
-    width: 48px;
-    height: 48px;
-    border-radius: 24px;
-    text-align: center;
-    font-size: 16px;
+    width: 42px;
+    height: 42px;
+    border-radius: 20px;
+    font-size: 20px;
+    padding: 0px ;
+}
+.btn-circle:hover {
+    background-color:  #ababab;
 }
