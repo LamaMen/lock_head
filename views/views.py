@@ -21,13 +21,13 @@ def log():
     return render_template('log.html', logs=LogService.show_logs())
 
 
-@app.route('/add', methods=['GET'])
+@app.route('/tasks/list', methods=['GET'])
 def get_tasks():
-    tasks_from_db = []
+    tasks_json = []
     for task in TechTaskService.show_all():
-        tasks_from_db.append(task.tech_task_id)
+        tasks_json.append({"title": task.tech_task_id})
 
-    return jsonify({"tasks": tasks_from_db})
+    return jsonify(tasks_json)
 
 
 @app.route('/tasks/add/<task_id>')
