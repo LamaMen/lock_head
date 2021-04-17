@@ -1,9 +1,9 @@
-import serial
-
+import json
 import time
+import traceback
 
 import requests
-import json
+import serial
 
 CARD_URL = 'http://127.0.0.1:5000/devices/card_reader'
 
@@ -12,10 +12,15 @@ def start_card_scanner():
     url = CARD_URL
     while True:
         try:
-            data = {'card': get_card_number()}
+            code = get_card_number()
+            print("Считано значение", code)
+            data = {'card': code}
             r = requests.post(url, data=json.dumps(data), headers={'Content-Type': 'application/json'})
+            print(r.content)
             time.sleep(10)
+
         except Exception:
+            traceback.print_exc()
             break
 
 

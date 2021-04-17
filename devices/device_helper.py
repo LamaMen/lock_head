@@ -1,3 +1,4 @@
+from devices.gpio_helper import GPIOHelper
 from devices.slots_handler import open_slot
 from services.box_service import BoxService
 from services.log_service import LogService
@@ -8,11 +9,13 @@ class DeviceHelper:
     qr_code = ""
     is_worker_login = False
     is_qr_code_input = False
+    led = GPIOHelper()
 
     def set_worker(self, worker):
         if not self.is_worker_login:
             self.worker = worker
             self.is_worker_login = True
+            self.led.card_turn_on()
 
         self.open_slot()
 
@@ -20,6 +23,7 @@ class DeviceHelper:
         if not self.is_qr_code_input:
             self.qr_code = qr_code
             self.is_qr_code_input = True
+            self.led.qr_turn_on()
 
         self.open_slot()
 
@@ -34,8 +38,12 @@ class DeviceHelper:
             if box_number != -1:
                 open_slot(box_number)
 
-            self.is_worker_login = False
-            self.is_qr_code_input = False
+            self.reset()
+
+    def reset(self):
+        self.is_worker_login = False
+        self.is_qr_code_input = False
+        self.led.turn_off_all()
 
     def get_box_number(self):
         boxes = BoxService.show_all()

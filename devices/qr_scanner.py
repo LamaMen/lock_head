@@ -1,21 +1,26 @@
-import serial
-
 import json
 import time
+import traceback
 
 import requests
+import serial
 
-CARD_URL = 'http://127.0.0.1:5000/devices/qr_reader'
+QR_URL = 'http://127.0.0.1:5000/devices/qr_reader'
 
 
 def start_qr_reader():
-    url = CARD_URL
+    url = QR_URL
     while True:
         try:
-            data = {'qr_task': get_qr_code()}
+            code = get_qr_code()
+            print("Считано значение", code)
+            data = {'qr_task': code}
             r = requests.post(url, data=json.dumps(data), headers={'Content-Type': 'application/json'})
+            print(r.content)
             time.sleep(10)
+
         except Exception:
+            traceback.print_exc()
             break
 
 
@@ -29,7 +34,6 @@ def get_qr_code() -> str:
             data += current_symbol
             current_symbol = qr.read()
 
-    print(data)
     return data.decode("usf-8")
 
 

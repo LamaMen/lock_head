@@ -28,3 +28,10 @@ def qr_reader():
         return 'success', 200
     else:
         abort(400)
+
+
+@app.route('/devices/button')
+def button():
+    print('Button clicked')
+    helper.reset()
+    return 'success', 200
