@@ -34,7 +34,7 @@ def get_qr_code() -> str:
             data += current_symbol
             current_symbol = qr.read()
 
-    return data.decode("usf-8")
+    return data.decode("utf-8")
 
 
 if __name__ == '__main__':
