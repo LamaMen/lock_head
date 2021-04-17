@@ -5,6 +5,7 @@
     <title>Ячейки</title>
     <!-- Required meta tags -->
     <meta charset="utf-8">
+
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
@@ -18,21 +19,21 @@
 <body>
 
 <div class="wrapper container">
+    <header></header>
     <nav id="menu" class="navbar navbar-expand-sm  justify-content-center  fixed-top">
-        <ul class="nav nav-justified">
-            <li class="nav-item">
-                <a class="nav-link" href="/tasks" id="a1">ТехЗадания</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="/" id="a2">Ячейки</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="/log" id="a3">Логи</a>
-            </li>
-        </ul>
+      <ul class="nav nav-justified">
+        <li class="nav-item">
+          <a class="nav-link" href="/tasks">ТехЗадания</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/" style="border-Bottom :2px solid #F8E015">Ячейки</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/log">Логи</a>
+        </li>
+      </ul>
     </nav>
 </div>
-<script src="{{ url_for('static', filename='line.js') }}"></script>
 
 {% for box in boxes %}
     <div class="container-fluid">

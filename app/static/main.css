@@ -29,13 +29,13 @@ button.btn{
 
 }
 button.btn2{
-    background-color:  #F8E015;
+    background-color:  #C4C4C4;
     border-radius: 20px;
     border: none;
-    position: relative;
-    left: 50%;
-    transform: translate(-50%, 0);
-    width: 200px;
+    position: absolute;
+    left: 75%;
+    height: 6%;
+    top: 2%;
 
 }
 
