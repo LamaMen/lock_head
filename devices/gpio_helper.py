@@ -6,7 +6,7 @@ class GPIOHelper:
     scanner_led_pin = 18
 
     def __init__(self):
-        GPIO.setmode(GPIO.BOARD)<
+        GPIO.setmode(GPIO.BOARD)
         GPIO.setup(self.qr_led_pin, GPIO.OUT)
         GPIO.setup(self.scanner_led_pin, GPIO.OUT)
 
