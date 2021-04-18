@@ -3,7 +3,7 @@ document.getElementById('form-Task').addEventListener('submit', saveTask);
 // Save new To-Do
 function saveTask(e) {
     let title = document.getElementById('title').value;
-    let url = 'http://127.0.0.1:5000/tasks/add/' + title;
+    let url = 'http://192.168.1.19:5000/tasks/add/' + title;
     let xhr = new XMLHttpRequest();
     xhr.open('GET', url, false);
     xhr.send();
@@ -17,7 +17,7 @@ function saveTask(e) {
 
 // Delete To-Do
 function deleteTask(title) {
-    let url = 'http://127.0.0.1:5000/tasks/delete/' + title;
+    let url = 'http://192.168.1.19:5000/tasks/delete/' + title;
     let xhr = new XMLHttpRequest();
     xhr.open('GET', url, false);
     xhr.send();
@@ -28,7 +28,7 @@ function deleteTask(title) {
 // Show To-Do List
 function getTasks() {
 
-    let url = 'http://127.0.0.1:5000/tasks/list';
+    let url = 'http://192.168.1.19:5000/tasks/list';
     let xhr = new XMLHttpRequest();
     xhr.open('GET', url, false);
     xhr.send();
