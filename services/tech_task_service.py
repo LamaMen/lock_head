@@ -10,6 +10,7 @@ class TechTaskService:
 
     @staticmethod
     def delete_task(task_id):
+        task_id += '/21'
         TechTaskDAO.delete(task_id)
 
     @staticmethod
