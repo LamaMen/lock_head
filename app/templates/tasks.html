@@ -18,25 +18,25 @@
 
 <div class="wrapper container">
     <header></header>
-    <nav class="navbar navbar-expand-sm  justify-content-center  fixed-top" id="menu">
+    <nav class="navbar navbar-expand-sm  justify-content-center  fixed-top">
         <ul class="nav nav-justified">
             <li class="nav-item">
-                <a class="nav-link" href="/tasks" id="a1">ТехЗадания</a>
+                <a class="nav-link" href="/tasks" style="border-Bottom :2px solid #F8E015">ТехЗадания</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="/" id="a2">Ячейки</a>
+                <a class="nav-link" href="/">Ячейки</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="/log" id="a3">Логи</a>
+                <a class="nav-link" href="/log">Логи</a>
             </li>
         </ul>
     </nav>
 </div>
-<script src="{{ url_for('static', filename='line.js') }}"></script>
+
 
 <div class="container">
     <div class="mx-auto" style="width: 500px;">
-        <div class="p-3 border bg-light">
+        <div class="bg-light">
             <div class="card">
                 <div class="card-body">
                     <form id="form-Task">
@@ -49,28 +49,15 @@
                 </div>
             </div>
         </div>
-        <div class="row my-5 justify-content-center">
-            <div class="col-md-7">
-                <div class="row">
-                    <div class="col-sm-6 text-left">
-                        <p class="font-weight-bold">ТехЗадание</p>
-                    </div>
-                    <div class="col-sm-5 text-right">
-                        <p class="font-weight-bold">Удалить</p>
-                    </div>
-                </div>
-                <hr>
-                <div id="tasks"></div>
-            </div>
-        </div>
-
     </div>
-
+    <div class="mx-auto my-5" style="width: 400px;">
+        <div id="tasks"></div>
+    </div>
 </div>
 <script src="{{ url_for('static', filename='app.js') }}"></script>
 
-<!-- Optional JavaScript -->
-<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+</body>
+
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
         integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
         crossorigin="anonymous"></script>
@@ -80,7 +67,5 @@
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
         integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
         crossorigin="anonymous"></script>
-
-</body>
 
 </html>

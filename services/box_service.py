@@ -13,3 +13,8 @@ class BoxService:
     @staticmethod
     def add_box():
         BoxDAO.create()
+
+    @staticmethod
+    def save(box_equals):
+        arr = box_equals.split(' - ')
+        BoxDAO.update(int(arr[0]), arr[1])

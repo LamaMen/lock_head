@@ -5,6 +5,7 @@ class TechTaskService:
     @staticmethod
     def add_task(task_id):
         if task_id is not None:
+            task_id += '/21'
             TechTaskDAO.create(task_id)
 
     @staticmethod

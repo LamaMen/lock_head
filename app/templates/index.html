@@ -2,121 +2,75 @@
 <html lang="en">
 
 <head>
-  <title>Ячейки</title>
-  <!-- Required meta tags -->
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title>Ячейки</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
 
-  <!-- Bootstrap CSS -->
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-  <link rel="stylesheet" href="{{ url_for('static', filename='main.css') }}">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="{{ url_for('static', filename='main.css') }}">
 
 </head>
 
 <body>
 
-  <div class="wrapper container">
+<div class="wrapper container">
     <header></header>
     <nav id="menu" class="navbar navbar-expand-sm  justify-content-center  fixed-top">
       <ul class="nav nav-justified">
         <li class="nav-item">
-          <a class="nav-link" href="/tasks" id="a1">ТехЗадания</a>
+          <a class="nav-link" href="/tasks">ТехЗадания</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="/" id="a2">Ячейки</a>
+          <a class="nav-link" href="/" style="border-Bottom :2px solid #F8E015">Ячейки</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="/log" id="a3">Логи</a>
+          <a class="nav-link" href="/log">Логи</a>
         </li>
       </ul>
     </nav>
-  </div>
-  <script src="{{ url_for('static', filename='line.js') }}"></script>
+</div>
 
-
-
-  <div class="container-fluid">
-    <div class="row">
-      <div class="col-md-3 "></div>
-      <div class="col-md-1 " align="center" style="background-color: #F8E015;">1</div>
-      <div class="col-md-4" style="background-color: #C4C4C4;">
-        <div class="dropdown" align="center">
-          <button class="btn1 dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown"
-            aria-haspopup="true" aria-expanded="false">
-            Выберите номер ТехЗадания
-          </button>
-          <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-            <a class="dropdown-item" href="#">000</a>
-            <a class="dropdown-item" href="#">111</a>
-            <a class="dropdown-item" href="#">222</a>
-          </div>
+{% for box in boxes %}
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-3 "></div>
+            <div class="col-md-1 left" align="center">{{ box.box_id }}</div>
+            <div class="col-md-4">
+                <form action="/box/change" id="task_change{{ box.box_id }}" method="post">
+                    <select name="task" class="form-control" align="center">
+                        <option selected value="{{ box.box_id }} - {{ box.tech_task_id }}">{{ box.tech_task_id }} </option>
+                        <option value="{{ box.box_id }} - none">---</option>
+                        {% for task in tasks %}
+                            <option value="{{ box.box_id }} - {{ task.tech_task_id }}">{{ task.tech_task_id }}</option>
+                        {% endfor %}
+                    </select>
+                </form>
+            </div>
+            <div class="col-md-1 right" align="center">
+                <div>
+                    <button type="submit" form="task_change{{ box.box_id }}" class="btn btn-circle"><i class="fa fa-save"></i></button>
+                    <button type="button" class="btn btn-circle"><i class="fa fa-lock"></i></button>
+                </div>
+            </div>
         </div>
-      </div>
-      <div class="col-md-1" align="center" style="background-color: #F8E015;">
-        <button type="button" class="btn btn-circle"><i class="fa fa-lock"></i></button>
-      </div>
     </div>
-  </div>
-  <br>
-  <div class="container-fluid">
-    <div class="row">
-      <div class="col-md-3"></div>
-      <div class="col-md-1" align="center" style="background-color: #F8E015;">2</div>
-      <div class="col-md-4" style="background-color: #C4C4C4;">
-        <div class="dropdown" align="center">
-          <button class="btn1 dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown"
-            aria-haspopup="true" aria-expanded="false">
-            Выберите номер ТехЗадания
-          </button>
-          <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-            <a class="dropdown-item" href="#">000</a>
-            <a class="dropdown-item" href="#">111</a>
-            <a class="dropdown-item" href="#">222</a>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-1" align="center" style="background-color: #F8E015;">
-        <button type="button" class="btn btn-circle"><i class="fa fa-lock"></i></button>
-      </div>
-    </div>
-  </div>
-  <br>
-  <div class="container-fluid">
-    <div class="row align-self-center">
-      <div class="col-md-3"></div>
-      <div class="col-md-1 " align="center" style="background-color: #F8E015;">3</div>
-      <div class="col-md-4" style="background-color: #C4C4C4;">
-        <div class="dropdown" align="center">
-          <button class="btn1 dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown"
-            aria-haspopup="true" aria-expanded="false">
-            Выберите номер ТехЗадания
-          </button>
-          <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-            <a class="dropdown-item" href="#">000</a>
-            <a class="dropdown-item" href="#">111</a>
-            <a class="dropdown-item" href="#">222</a>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-1" align="center" style="background-color: #F8E015;">
-        <button type="button" class="btn btn-circle"><i class="fa fa-lock"></i></button>
-      </div>
-    </div>
-  </div>
-
-
-  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-    integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-    crossorigin="anonymous"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
-    integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
-    crossorigin="anonymous"></script>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
-    integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
-    crossorigin="anonymous"></script>
-
+    <br>
+{% endfor %}
 </body>
+
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
 
 </html>

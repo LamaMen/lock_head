@@ -12,10 +12,62 @@
     integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
   <link rel="stylesheet" href="{{ url_for('static', filename='main.css') }}">
 
-
 </head>
 
 <body>
+
+  <nav class="navbar navbar-expand-sm  justify-content-center  fixed-top">
+    <ul class="nav nav-justified">
+      <li class="nav-item">
+        <a class="nav-link" href="/tasks">ТехЗадания</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/">Ячейки</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/log" style="border-Bottom :2px solid #F8E015">Логи</a>
+      </li>
+    </ul>
+  </nav>
+  <form action="/log/download" method="get">
+    <button type="submit" class="btn2">Скачать логи</button>
+  </form>
+
+  <div class="container">
+    <table class="table table-bordered">
+      <thead>
+        <tr>
+          <th scope="col">Сотрудник</th>
+          <th scope="col">Ячейка</th>
+          <th scope="col">ТЗ</th>
+          <th scope="col">Дата и время</th>
+        </tr>
+      </thead>
+      <tbody>
+      {% for log in logs %}
+        <tr>
+          <th scope="row">{{ log.worker }}</th>
+          <td>{{ log.log_id }}</td>
+          <td>{{ log.tech_task_id }}</td>
+          <td>{{ log.get_date() }}</td>
+        </tr>
+      {% endfor %}
+{#        <tr>#}
+{#          <th scope="row"></th>#}
+{#          <td></td>#}
+{#          <td></td>#}
+{#          <td></td>#}
+{#        </tr>#}
+{#        <tr>#}
+{#          <th scope="row"></th>#}
+{#          <td></td>#}
+{#          <td></td>#}
+{#          <td></td>#}
+{#        </tr>#}
+      </tbody>
+    </table>
+  </div>
+</body>
 
   <!-- Optional JavaScript -->
   <!-- jQuery first, then Popper.js, then Bootstrap JS -->
@@ -28,23 +80,5 @@
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
     integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
     crossorigin="anonymous"></script>
-  <div class="wrapper container">
-    <header></header>
-    <nav class="navbar navbar-expand-sm  justify-content-center  fixed-top" id="menu">
-      <ul class="nav nav-justified">
-        <li class="nav-item">
-          <a class="nav-link" href="/tasks" id="a1">ТехЗадания</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="/" id="a2">Ячейки</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="/log" id="a3">Логи</a>
-        </li>
-      </ul>
-    </nav>
-  </div>
-  <script src="{{ url_for('static', filename='line.js') }}"></script>
-</body>
 
 </html>

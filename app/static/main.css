@@ -1,4 +1,4 @@
- @import url('https://fonts.googleapis.com/css2?family=Lato:wght@300&family=Raleway:ital,wght@1,200&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@300&family=Raleway:ital,wght@1,200&display=swap');
 
 body{
     background: #F9F8F0;
@@ -26,30 +26,57 @@ a:hover,a:focus{
 button.btn{
         background-color: #C4C4C4;
         border-radius: 20px;
+
+}
+button.btn2{
+    background-color:  #C4C4C4;
+    border-radius: 20px;
+    border: none;
+    position: absolute;
+    left: 75%;
+    height: 6%;
+    top: 2%;
+
 }
 
 button.btn1{
     background-color: #F9F8F0;
-    padding-top: 0px;  
+    padding-top: 0px;
 }
+
 
 .container{
     margin-top: 10%;
 }
 
-.dropdown{
+.form-control{
     margin-top: 25px;
     margin-bottom: 25px;
 }
 
-.col-md-1{
+.left{
     font-size: 48px;
+    background-color: #F8E015;
+    border-radius: 50px 0 0 50px;
+}
+
+.right{
+    font-size: 48px;
+    background-color: #F8E015;
+    border-radius: 0 50px 50px 0;
+
+}
+.col-md-4{
+    background-color: #C4C4C4;
 }
 
 .btn-circle {
-    width: 48px;
-    height: 48px;
-    border-radius: 24px;
-    text-align: center;
-    font-size: 16px;
+    width: 42px;
+    height: 42px;
+    border-radius: 20px;
+    font-size: 20px;
+    padding: 0px ;
+}
+.btn-circle:hover {
+    background-color:  #ababab;
 }
