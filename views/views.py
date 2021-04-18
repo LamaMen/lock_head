@@ -1,9 +1,9 @@
 from flask import jsonify, render_template, send_file, request, redirect
 
 from app import app
+from services.box_service import BoxService
 from services.log_service import LogService
 from services.tech_task_service import TechTaskService
-from services.box_service import BoxService
 
 
 @app.route('/')
@@ -45,7 +45,7 @@ def delete_task(task_id):
 @app.route('/log/download')
 def logs_download():
     logs = LogService.download_logs()
-    return send_file(logs)
+    return send_file(logs, as_attachment=True)
 
 
 @app.route('/box/change', methods=['POST'])

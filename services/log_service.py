@@ -1,4 +1,5 @@
 import datetime
+import os
 
 from dao.log_dao import LogDAO
 
@@ -22,4 +23,8 @@ class LogService:
         for log in LogService.show_logs():
             logs.write(log.__str__())
         logs.close()
-        return logs
+
+        file_name = logs.name
+        directory = os.getcwd()
+
+        return os.path.join(directory, file_name)

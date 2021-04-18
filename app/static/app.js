@@ -2,49 +2,39 @@ document.getElementById('form-Task').addEventListener('submit', saveTask);
 
 // Save new To-Do
 function saveTask(e) {
-
     let title = document.getElementById('title').value;
-
-    let task = {
-        title
-    };
-
-    if (localStorage.getItem('tasks') === null) {
-        let tasks = [];
-        tasks.push(task);
-        localStorage.setItem('tasks', JSON.stringify(tasks));
-    } else {
-        let tasks = JSON.parse(localStorage.getItem('tasks'));
-        tasks.push(task);
-        localStorage.setItem('tasks', JSON.stringify(tasks));
-    }
-
+    let url = 'http://127.0.0.1:5000/tasks/add/' + title;
+    let xhr = new XMLHttpRequest();
+    xhr.open('GET', url, false);
+    xhr.send();
+    console.log(xhr.responseText);
     getTasks();
 
     // Reset form-Task
     document.getElementById('form-Task').reset();
     e.preventDefault();
-
 }
 
 // Delete To-Do
 function deleteTask(title) {
-
-    let tasks = JSON.parse(localStorage.getItem('tasks'));
-    for (let i = 0; i < tasks.length; i++) {
-        if (tasks[i].title == title) {
-            tasks.splice(i, 1);
-        }
-    }
-
-    localStorage.setItem('tasks', JSON.stringify(tasks));
+    let url = 'http://127.0.0.1:5000/tasks/delete/' + title;
+    let xhr = new XMLHttpRequest();
+    xhr.open('GET', url, false);
+    xhr.send();
+    console.log(xhr.responseText);
     getTasks();
 }
 
 // Show To-Do List
 function getTasks() {
 
-    let tasks = JSON.parse(localStorage.getItem('tasks'));
+    let url = 'http://127.0.0.1:5000/tasks/list';
+    let xhr = new XMLHttpRequest();
+    xhr.open('GET', url, false);
+    xhr.send();
+    let tasks = JSON.parse(xhr.response);
+    console.log(tasks)
+
     let tasksView = document.getElementById('tasks');
     tasksView.innerHTML = '';
 
@@ -58,14 +48,13 @@ function getTasks() {
           <div class="col-sm-6 text-left">
             <p>${title}</p>
           </div>
-          <div class="col-sm-3 text-right">
+          <div class="col-sm-6 text-right">
             <a href="#" onclick="deleteTask('${title}')" class="btn btn-danger ml-5">X</a>
           </div>
         </div>  
        </div>
       </div>`;
     }
-
 }
 
 getTasks();

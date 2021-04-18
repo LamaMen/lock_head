@@ -23,5 +23,8 @@ class Log(db.Model):
     tech_task_id = db.Column(db.String(250))
 
     def __str__(self):
-        return "%r  Сотрудник: %r  Дата: %r  Номер ТЗ: %r\n" % \
-               (self.log_id, self.worker, self.date.__str__(), self.tech_task_id)
+        return "Дата: %r Сотрудник: %r  Номер ТЗ: %r\n" % \
+               (self.get_date(), self.worker, self.tech_task_id)
+
+    def get_date(self):
+        return self.date.strftime("%Y-%m-%d %H:%M:%S")
