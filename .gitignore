@@ -12,3 +12,4 @@
 /migrations/versions/__pycache__/
 server.py
 server.wsgi
+/Logs.txt
