@@ -37,7 +37,7 @@
         <thead>
         <tr>
             <th scope="col">Сотрудник</th>
-            <th scope="col">Ячейка</th>
+{#            <th scope="col">Ячейка</th>#}
             <th scope="col">ТЗ</th>
             <th scope="col">Дата и время</th>
         </tr>
@@ -46,7 +46,7 @@
         {% for log in logs %}
             <tr>
                 <th scope="row">{{ log.worker }}</th>
-                <td>{{ log.log_id }}</td>
+{#                <td>{{ log.log_id }}</td>#}
                 <td>{{ log.tech_task_id }}</td>
                 <td>{{ log.get_date() }}</td>
             </tr>
