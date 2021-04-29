@@ -5,9 +5,7 @@
     <title>Ячейки</title>
     <!-- Required meta tags -->
     <meta charset="utf-8">
-
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="{{ url_for('static', filename='bootstrap.min.css') }}">
@@ -53,9 +51,13 @@
             </div>
             <div class="col-md-1 right" align="center">
                 <div>
-                    <button type="submit" form="task_change{{ box.box_id }}" class="btn btn-circle"><i
-                            class="fa fa-save"></i></button>
-                    <button type="button" class="btn btn-circle"><i class="fa fa-lock"></i></button>
+                    <button type="button" form="task_change{{ box.box_id }}" class="btn btn-circle">
+                        <img src="{{ url_for('static', filename='save.svg') }}"
+                             width="20"
+                             height="20">
+                    </button>
+                    <button type="button" class="btn btn-circle"><img src="{{ url_for('static', filename='lock.svg') }}"
+                                                                      width="20" height="20"></button>
                 </div>
             </div>
         </div>
