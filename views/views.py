@@ -1,6 +1,7 @@
 from flask import jsonify, render_template, send_file, request, redirect
 
 from app import app
+from devices.slots_handler import open_slot
 from services.box_service import BoxService
 from services.log_service import LogService
 from services.tech_task_service import TechTaskService
@@ -51,4 +52,11 @@ def logs_download():
 @app.route('/box/change', methods=['POST'])
 def change_box():
     BoxService.save(request.form.get('task'))
+    return redirect('/', code=302)
+
+
+@app.route('/box/open/<box_id>')
+def open_slot_debug(box_id):
+    app.logger.info(box_id)
+    open_slot(box_id)
     return redirect('/', code=302)

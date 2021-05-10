@@ -56,7 +56,7 @@
                              width="20"
                              height="20">
                     </button>
-                    <button type="button" class="btn btn-circle"><img src="{{ url_for('static', filename='lock.svg') }}"
+                    <button type="button" class="btn btn-circle" id="{{ box.box_id }}"><img id="{{ box.box_id }}" src="{{ url_for('static', filename='lock.svg') }}"
                                                                       width="20" height="20"></button>
                 </div>
             </div>
@@ -66,6 +66,17 @@
 {% endfor %}
 </body>
 
+<script>
+  {#document.body.addEventListener("click", function(event) #}
+  {#  console.log("Clicked", event.target.id);#}
+  {#  let url = '/box/open/' + event.target.id;#}
+  {#  let xhr = new XMLHttpRequest();#}
+  {#  xhr.open('GET', url, false);#}
+  {#  xhr.send();#}
+  {# ); #}
+</script>
+
+<script src="{{ url_for('static', filename='index.js') }}"></script>
 <script src="{{ url_for('static', filename='slim.min.js') }}"></script>
 <script src="{{ url_for('static', filename='popper.min.js') }}"></script>
 <script src="{{ url_for('static', filename='bootstrap.min.js') }}"></script>
