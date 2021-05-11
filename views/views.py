@@ -58,5 +58,5 @@ def change_box():
 @app.route('/box/open/<box_id>')
 def open_slot_debug(box_id):
     app.logger.info(box_id)
-    open_slot(box_id)
+    open_slot(int(box_id))
     return redirect('/', code=302)
