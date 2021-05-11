@@ -17,7 +17,7 @@ def start_qr_reader():
             data = {'qr_task': code}
             r = requests.post(url, data=json.dumps(data), headers={'Content-Type': 'application/json'})
             print(r.content)
-            time.sleep(10)
+            time.sleep(5)
 
         except Exception:
             traceback.print_exc()
