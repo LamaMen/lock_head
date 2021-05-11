@@ -15,5 +15,5 @@ migrate = Migrate(app, db)
 CORS(app)
 
 from views import views
-# from views import debug_views
 from views import devices_views
+from views import admin_views

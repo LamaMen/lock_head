@@ -10,6 +10,12 @@ class BoxDAO:
         db.session.commit()
 
     @staticmethod
+    def create_with_task(box_id, task_id):
+        add_box = Box(box_id=box_id, tech_task_id=task_id)
+        db.session.add(add_box)
+        db.session.commit()
+
+    @staticmethod
     def read_all():
         return Box.query.all()
 
