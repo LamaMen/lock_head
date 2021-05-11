@@ -1,5 +1,5 @@
-from app.models import TechTask
 from app import db
+from app.models import TechTask
 
 
 class TechTaskDAO:

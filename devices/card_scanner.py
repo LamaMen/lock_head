@@ -8,24 +8,14 @@ import serial
 CARD_URL = 'http://127.0.0.1:5000/devices/card_reader'
 
 
-def start_card_scanner():
-    url = CARD_URL
-    while True:
-        try:
-            code = get_card_number()
-            print("Считано значение", code)
-            data = {'card': code}
-            r = requests.post(url, data=json.dumps(data), headers={'Content-Type': 'application/json'})
-            print(r.content)
-            time.sleep(5)
-
-        except Exception:
-            traceback.print_exc()
-            break
+def read_card_number():
+    code = get_card_number()
+    data = {'card': code}
+    requests.post(CARD_URL, data=json.dumps(data), headers={'Content-Type': 'application/json'})
+    time.sleep(5)
 
 
 def get_card_number() -> str:
-    # return '12354'
     with serial.Serial('/dev/serial0', 9600) as card:
         data = b''
         current_byte = b''
@@ -38,4 +28,8 @@ def get_card_number() -> str:
 
 
 if __name__ == '__main__':
-    start_card_scanner()
+    while True:
+        try:
+            read_card_number()
+        except Exception:
+            traceback.print_exc()

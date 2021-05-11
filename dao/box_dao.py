@@ -1,5 +1,5 @@
-from app.models import Box
 from app import db
+from app.models import Box
 
 
 class BoxDAO:

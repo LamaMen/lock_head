@@ -1,8 +1,8 @@
+from app import app
 from devices.gpio_helper import GPIOHelper
 from devices.slots_handler import open_slot
 from services.box_service import BoxService
 from services.log_service import LogService
-from app import app
 
 
 class DeviceHelper:

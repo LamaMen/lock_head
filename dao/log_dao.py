@@ -1,5 +1,5 @@
-from app.models import Log
 from app import db
+from app.models import Log
 
 
 class LogDAO:

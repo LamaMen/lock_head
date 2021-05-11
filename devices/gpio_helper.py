@@ -1,4 +1,5 @@
 import RPi.GPIO as GPIO
+
 from app import app
 
 
