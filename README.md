@@ -1,6 +1,6 @@
 # Система автматической выдачи материалов для рабочих
-Проект состоит из 4 компонентов:
-* [Сервер](./documentation/server.md)
-* [Сканер карт](./documentation/devices.md)
-* [Сканер QR кодов](./documentation/devices.md)
-* [Arduino Mega](./documentation/arduino.md)
+Оглавление:
+* [Описание общей схемы взаимодействия](./documentation/main.md)
+* [Опиание работы c клиентской частью](./documentation/server.md)
+* [Описание работы работы с устройствами](./documentation/devices.md)
+* [Описание работы Arduino Mega](./documentation/arduino.md)
