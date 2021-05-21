@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <title>ТехЗадание</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='bootstrap.min.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='main.css') }}">
+
+</head>
+
+<body>
+
+<div class="wrapper container">
+    <header></header>
+    <nav class="navbar navbar-expand-sm  justify-content-center  fixed-top">
+        <ul class="nav nav-justified">
+            <li class="nav-item">
+                <a class="nav-link" href="/tasks" style="border-Bottom :2px solid #F8E015">ТехЗадания</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/">Ячейки</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/log">Логи</a>
+            </li>
+        </ul>
+    </nav>
+</div>
+
+
+<div class="container">
+    <div class="mx-auto" style="width: 500px;">
+        <div class="bg-light">
+            <div class="card">
+                <div class="card-body">
+                    <form id="form-Task">
+                        <div class="form-group">
+                            <input type="text" id="title" class="form-control" maxlength="50" autocomplete="off"
+                                   placeholder="ТехЗадание" required>
+                        </div>
+                        <button type="submit" class="btn btn-success btn-block">Сохранить</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="mx-auto my-5" style="width: 400px;">
+        <div id="tasks"></div>
+    </div>
+</div>
+<script src="{{ url_for('static', filename='app.js') }}"></script>
+
+</body>
+
+<script src="{{ url_for('static', filename='slim.min.js') }}"></script>
+<script src="{{ url_for('static', filename='popper.min.js') }}"></script>
+<script src="{{ url_for('static', filename='bootstrap.min.js') }}"></script>
+
+</html>

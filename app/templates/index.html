@@ -1,45 +1,74 @@
 <!doctype html>
-<html lang="en" class="h-100">
+<html lang="en">
+
 <head>
+    <title>Ячейки</title>
+    <!-- Required meta tags -->
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Cover Template · Bootstrap v5.0</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    <!-- Bootstrap core CSS -->
-    <link href="{{ url_for('static', filename='bootstrap.min.css') }}" rel="stylesheet">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='bootstrap.min.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='main.css') }}">
 
-    <!-- Custom styles for this template -->
-    <link href="{{ url_for('static', filename='cover.css') }}" rel="stylesheet">
 </head>
-<body class="d-flex h-100 text-center text-white bg-dark">
 
-<div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
-    <header class="mb-auto">
-        <div>
-            <h3 class="float-md-start mb-0">Cover</h3>
-            <nav class="nav nav-masthead justify-content-center float-md-end">
-                <a class="nav-link active" aria-current="page" href="#">Ящики</a>
-                <a class="nav-link" href="#">Технические задания</a>
-                <a class="nav-link" href="#">Логи</a>
-            </nav>
-        </div>
-    </header>
+<body>
 
-    <main class="px-3">
-        <h1>Страница написанная на bootstrap.</h1>
-        <p class="lead">Это простая страница написанная на Bootstrap. Вот так мог бы выглядеть наш сайт.</p>
-        <p class="lead">
-            <a href="https://getbootstrap.com/" class="btn btn-lg btn-secondary fw-bold border-white bg-white">Learn more</a>
-        </p>
-    </main>
-
-
-
-    <footer class="mt-auto text-white-50">
-        <p>Страница сделана с помощью <a href="https://getbootstrap.com/" class="text-white">Bootstrap</a>, by <span class="text-white">Ваш пездатый босс</span>.</p>
-    </footer>
+<div class="wrapper container">
+    <header></header>
+    <nav id="menu" class="navbar navbar-expand-sm  justify-content-center  fixed-top">
+        <ul class="nav nav-justified">
+            <li class="nav-item">
+                <a class="nav-link" href="/tasks">ТехЗадания</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/" style="border-Bottom :2px solid #F8E015">Ячейки</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/log">Логи</a>
+            </li>
+        </ul>
+    </nav>
 </div>
 
-
+{% for box in boxes %}
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-3 "></div>
+            <div class="col-md-1 left" align="center">{{ box.box_id }}</div>
+            <div class="col-md-4">
+                <form action="/box/change" id="task_change{{ box.box_id }}" method="post">
+                    <select name="task" class="form-control" align="center">
+                        <option selected
+                                value="{{ box.box_id }} - {{ box.tech_task_id }}">{{ box.tech_task_id }} </option>
+                        <option value="{{ box.box_id }} - none">---</option>
+                        {% for task in tasks %}
+                            <option value="{{ box.box_id }} - {{ task.tech_task_id }}">{{ task.tech_task_id }}</option>
+                        {% endfor %}
+                    </select>
+                </form>
+            </div>
+            <div class="col-md-1 right" align="center">
+                <div>
+                    <button type="submit" form="task_change{{ box.box_id }}" class="btn btn-circle">
+                        <img src="{{ url_for('static', filename='save.svg') }}"
+                             width="20"
+                             height="20">
+                    </button>
+                    <button type="button" class="btn btn-circle" id="{{ box.box_id }}"><img id="{{ box.box_id }}" src="{{ url_for('static', filename='lock.svg') }}"
+                                                                      width="20" height="20"></button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <br>
+{% endfor %}
 </body>
+
+<script src="{{ url_for('static', filename='index.js') }}"></script>
+<script src="{{ url_for('static', filename='slim.min.js') }}"></script>
+<script src="{{ url_for('static', filename='popper.min.js') }}"></script>
+<script src="{{ url_for('static', filename='bootstrap.min.js') }}"></script>
+
 </html>

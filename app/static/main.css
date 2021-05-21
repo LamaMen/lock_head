@@ -1,0 +1,84 @@
+body{
+    background: #F9F8F0;
+}
+
+nav-item{
+    font-family: Montserrat;
+font-size: 24px;
+font-style: normal;
+font-weight: 400;
+line-height: 29px;
+letter-spacing: 0em;
+text-align: left;
+}
+
+a{
+    color: #2F2D30;
+}
+
+a:hover,a:focus{
+    color: #F8E015;
+    outline: 0;
+   }
+
+button.btn{
+        background-color: #C4C4C4;
+        border-radius: 20px;
+
+}
+button.btn2{
+    background-color:  #C4C4C4;
+    border-radius: 20px;
+    border: none;
+    position: relative;
+    left: 75%;
+    height: 6%;
+    top: 2%;
+
+}
+
+button.btn1{
+    background-color: #F9F8F0;
+    padding-top: 0px;
+}
+
+
+.container{
+    margin-top: 10%;
+}
+
+.form-control{
+    margin-top: 25px;
+    margin-bottom: 25px;
+}
+
+.left{
+    font-size: 48px;
+    background-color: #F8E015;
+    border-radius: 50px 0 0 50px;
+}
+
+.right{
+    font-size: 48px;
+    background-color: #F8E015;
+    border-radius: 0 50px 50px 0;
+
+}
+.col-md-4{
+    background-color: #C4C4C4;
+}
+
+.btn-circle {
+    width: 42px;
+    height: 42px;
+    border-radius: 20px;
+    font-size: 20px;
+    padding: 0px ;
+}
+.btn-circle:hover {
+    background-color:  #ababab;
+}
+
+nav{
+    background: #F9F8F0;
+}
